@@ -1,0 +1,66 @@
+h1 {
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.registerTable {
+    border-radius:  27px 27px 27px 27px;
+    background-color: #ace6ea;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.registerTable > h3 {
+    display: flex;
+    justify-content: center;
+    
+}
+
+table {
+    margin: auto;
+}
+
+.label {
+    padding-right: 10px;
+}
+
+input {
+    opacity: 0.8;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+    width: 100%;
+}
+
+input[type="date"] {
+    padding-right: 2px;
+}
+
+.registerButton {
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.registerButton > button {
+    height: 30px;
+    width: 100px;
+    border-radius: 27px 27px 27px 27px;
+}
+
+.loginHere {
+    text-align: center;
+}
+
+.loginHere > a {
+    text-decoration: none;
+    color: brown;
+}
+
+.errorMessage {
+    color: red;
+    font-style: italic;
+    padding-left: 12px;
+    max-width: 220px;
+}

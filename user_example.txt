@@ -1,0 +1,14 @@
+{
+    "firstname": "Jovana",
+    "lastname": "Pavic",
+    "username": "jpavic",
+    "password": "jovana123",
+    "city": "Beograd",
+    "birthday": "2021-12-27 00:00:00:000Z"
+    "phone": "0612765998",
+    "email": "jovana@jo.rs",
+    "agency": null,
+    "licence_number": "0123456",
+    "type": 0,
+    "status": 0    
+}

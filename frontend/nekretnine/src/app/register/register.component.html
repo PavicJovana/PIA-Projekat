@@ -1,0 +1,149 @@
+<div class="registerBody">
+    <h1>Dobrodosli na TvojaNekretnina.rs</h1>
+
+    <div class="registerTable">
+        <h3>Registracija</h3>
+        <form name="myform">
+            <table>
+                <tr>
+                    <td class="label">Ime:</td>
+                    <td><input type="text" name="firstname" [(ngModel)]="user.firstname" /></td>
+                </tr>
+                <tr *ngIf="message.firstname">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.firstname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Prezime:</td>
+                    <td><input type="text" name="lastname" [(ngModel)]="user.lastname" /></td>
+                </tr>
+                <tr *ngIf="message.lastname">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.lastname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Korisničko ime:</td>
+                    <td><input type="text" name="username" [(ngModel)]="user.username" /></td>
+                </tr>
+                <tr *ngIf="message.username">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.username}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Šifra:</td>
+                    <td><input type="password" name="password" [(ngModel)]="user.password" /></td>
+                </tr>
+                <tr *ngIf="message.password">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.password}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Ponovljena šifra:</td>
+                    <td><input type="password" name="passwordSecond" [(ngModel)]="passwordSecond" /></td>
+                </tr>
+                <tr *ngIf="message.passwordSecond">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.passwordSecond}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Grad:</td>
+                    <td><input type="text" name="city" [(ngModel)]="user.city" /></td>
+                </tr>
+                <tr *ngIf="message.city">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.city}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Rodjendan:</td>
+                    <td><input type="date" name="birthday" [ngModel]="user.birthday | date:'yyyy-MM-dd'" (ngModelChange)="user.birthday = $event" /></td>
+                </tr>
+                <tr *ngIf="message.birthday">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.birthday}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Telefon:</td>
+                    <td><input type="text" name="phone" [(ngModel)]="user.phone" /></td>
+                </tr>
+                <tr *ngIf="message.phone">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.phone}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Email:</td>
+                    <td><input type="text" name="email" [(ngModel)]="user.email" /></td>
+                </tr>
+                <tr *ngIf="message.email">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Tip korisnika:</td>
+                    <td>
+                        <input type="radio" name="type" [(ngModel)]="user.type" [value]="0" />Admin 
+                        <input type="radio" name="type" [(ngModel)]="user.type" [value]="1" />Oglašivač 
+                        <input type="radio" name="type" [(ngModel)]="user.type" [value]="2" />Kupac 
+                    </td>
+                </tr>
+                <tr *ngIf="message.type">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.type}}
+                    </td>
+                </tr>
+                <tr *ngIf="user.type == 1">
+                    <td>Broj licence:</td>
+                    <td><input type="text" name="licence_number" [(ngModel)]="user.licence_number" /></td>
+                </tr>
+                <tr *ngIf="user.type == 1 && message.licence_number">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.licence_number}}
+                    </td>
+                </tr>
+                <tr *ngIf="user.type == 1">
+                    <td>Agent agencije?</td>
+                    <td><input type="checkbox" name="agent" [(ngModel)]="agent" /></td>
+                </tr>
+                <tr *ngIf="user.type == 1 && agent == true">
+                    <td>Agencija:</td>
+                    <td><input type="text" name="agency" [(ngModel)]="user.agency" /></td>
+                </tr>
+                <tr *ngIf="user.type == 1 && agent == true && message.agency">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.agency}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="registerButton">
+                        <button (click)="register()" type="submit">Registruj se</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="loginHere">
+                        Imate nalog? <a routerLink="/"><i>Prijavite se</i></a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

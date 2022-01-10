@@ -1,0 +1,32 @@
+<div class="loginBody">
+    <h1>Dobrodošli na TvojaNekretnina.rs</h1>
+
+    <div class="loginTable">
+        <h3>Prijava</h3>
+        <table>
+            <tr>
+                <td class="label">Korisničko ime:</td>
+                <td><input type="text" name="username" [(ngModel)]="username" /></td>
+            </tr>
+            <tr>
+                <td class="label">Šifra:</td>
+                <td><input type="password" name="password" [(ngModel)]="password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="loginButton">
+                    <button (click)="login()">Prijavi se</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="registerHere">
+                    Nemate nalog? <a routerLink="/register"><i>Registrujte se</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="errorMessage">
+                    {{message}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
