@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
     if (sessionStorage.getItem('user')) {
       switch (sessionStorage.getItem('userType')) {
         case "0":
-          this.message = "Ovo je admin";
-          this.router.navigate(['/register']);
+          this.router.navigate(['/admin']);
           break;
         case "1":
           this.message = "Ovo je oglašivač";
@@ -45,8 +44,7 @@ export class LoginComponent implements OnInit {
           
           switch (user.type) {
             case 0:
-              this.message = "Ovo je admin";
-              this.router.navigate(['/logedIn']).then(()=>this.router.navigate(['/register']));
+              this.router.navigate(['/admin']);
               break;
             case 1:
               this.message = "Ovo je oglašivač";

@@ -1,0 +1,62 @@
+header > .nav {
+    margin-left: 20px;
+}
+
+header > .nav > a {
+    text-decoration: none;
+    color: black;
+}
+
+header > .nav > a:hover {
+    font-style: italic;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+h3, h4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.pendingUsers, .allUsers {
+    background-color: #ace6ea;
+    padding: 20px 40px 40px 40px;
+    border-radius: 27px;
+}
+
+.allUsers {
+    margin-top: 20px;
+}
+
+table {  
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0 10px;
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 0, 0, .5);
+}
+
+th {
+    padding-bottom: 5px;
+}
+
+.allUsers td {
+    padding: 5px;
+}
+
+td > button {
+    width: 61px;
+    border-radius: 27px 27px 27px 27px;
+    margin: 5px 5px 5px 0;
+}
+
+table > tr:last-child > td {
+    border-bottom: none;
+}

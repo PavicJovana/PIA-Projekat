@@ -37,6 +37,15 @@ let User = new Schema({
         type: String
     },
     type: {
+        //0 - admin
+        //1 - oglasivac
+        //2 - kupac
+        type: Number
+    },
+    status: {
+        //0 - odbijen
+        //1 - prihvacen
+        //2 - na cekanju
         type: Number
     }
 });

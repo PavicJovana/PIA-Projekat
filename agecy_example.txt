@@ -1,0 +1,7 @@
+{
+    "name": "Agencija 1",
+    "address": "Beogradska 3",
+    "city": "Beograd",
+    "phone": "06123456",
+    "pib": "123456"    
+}

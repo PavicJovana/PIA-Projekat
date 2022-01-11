@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 
@@ -9,14 +10,13 @@ import { UserService } from '../services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem('user')) {
       switch (sessionStorage.getItem('userType')) {
         case "0":
-          //this.message = "Ovo je admin";
-          //this.router.navigate(['/admin']);
+          this.router.navigate(['/admin']);
           break;
         case "1":
           //this.message = "Ovo je oglašivač";
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
       }
     } else {
       this.user.birthday = new Date();
-      this.user.status = 0;
+      this.user.status = 2;
     }
 
   }

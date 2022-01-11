@@ -8,7 +8,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:4000";
+  uri = "http://localhost:4000/users";
 
   login(username: string, password: string) {
     const data = {
@@ -16,13 +16,13 @@ export class UserService {
       password: password
     }
 
-    return this.http.post(this.uri+"/users/login", data);
+    return this.http.post(this.uri+"/login", data);
 
   }
 
   register(data: Object) {
 
-    return this.http.post(this.uri+"/users/register", data);
+    return this.http.post(this.uri+"/register", data);
 
   }
 
@@ -33,7 +33,32 @@ export class UserService {
       email: email
     }
 
-    return this.http.post(this.uri+"/users/checkUsernameAndEmail", data);
+    return this.http.post(this.uri+"/checkUsernameAndEmail", data);
 
   }
+
+  getAllPendingUsers() {
+    return this.http.get(this.uri+"/getAllPendingUsers");
+  }
+
+  getAllUsers() {
+    return this.http.get(this.uri+"/getAllUsers");
+  }
+
+  approveUser(username: string) {
+    const data = {
+      username: username
+    }
+
+    return this.http.post(this.uri+"/approveUser", data);
+  }
+
+  rejectUser(username: string) {
+    const data = {
+      username: username
+    }
+
+    return this.http.post(this.uri+"/rejectUser", data);
+  }
+
 }

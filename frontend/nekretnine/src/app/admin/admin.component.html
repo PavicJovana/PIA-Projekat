@@ -1,0 +1,85 @@
+<header>
+    <div class="logo">TvojaNekretnina.rs</div>
+    <div class="nav"><a routerLink="/admin">Upravljanje korisnicima</a> | <a routerLink="/agency">Dodavanje agencija</a> | <a routerLink="/location">Upravljanje mikrolokacijama</a> </div>
+    <div *ngIf="userLoged" class="logout" (click)="logout()">Logout</div>
+</header>
+
+<div class="adminBody">
+    <h1>Upravljanje korisnicima</h1>
+
+    <div class="pendingUsers">
+        <h3>Korisnici na čekanju</h3>
+
+        <table *ngIf="allPendingUsers.length > 0">
+            <tr>
+                <th>Tip korisnika</th>
+                <th>Ime i prezime</th>
+                <th>Korisničko ime</th>
+                <th>Datum rođenja</th>
+                <th>Grad</th>
+                <th>Email</th>
+                <th>Kontakt telefon</th>
+                <th>Agencija</th>
+                <th>Broj licence agenta</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let user of allPendingUsers">
+                <td>
+                    <span *ngIf="user.type == 0">Admin</span>
+                    <span *ngIf="user.type == 1">Oglašivač</span>
+                    <span *ngIf="user.type == 2">Kupac</span>
+                </td>
+                <td>{{user.firstname}} {{user.lastname}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.birthday | date:"dd.MM.yyyy"}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.agency}}</td>
+                <td>{{user.licence_number}}</td>
+                <td><button (click)="approveUser(user.username)">Prihvati</button> <button (click)="rejectUser(user.username)">Odbij</button></td>
+            </tr>
+        </table>
+        <h4 *ngIf="allPendingUsers.length == 0">Nema novih zahteva</h4>
+    </div>
+
+    <div class="allUsers">
+        <h3>Svi korisnici</h3>
+
+        <table *ngIf="allUsers.length > 0">
+            <tr>
+                <th>Tip korisnika</th>
+                <th>Ime i prezime</th>
+                <th>Korisničko ime</th>
+                <th>Datum rođenja</th>
+                <th>Grad</th>
+                <th>Email</th>
+                <th>Kontakt telefon</th>
+                <th>Agencija</th>
+                <th>Broj licence agenta</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let user of allUsers">
+                <td>
+                    <span *ngIf="user.type == 0">Admin</span>
+                    <span *ngIf="user.type == 1">Oglašivač</span>
+                    <span *ngIf="user.type == 2">Kupac</span>
+                </td>
+                <td>{{user.firstname}} {{user.lastname}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.birthday | date:"dd.MM.yyyy"}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.agency}}</td>
+                <td>{{user.licence_number}}</td>
+                <td>
+                    <span *ngIf="user.status == 0">Odbijen</span>
+                    <span *ngIf="user.status == 1">Aktivan</span>
+                    <span *ngIf="user.status == 2">Na čekanju</span>
+                </td>
+            </tr>
+        </table>
+        <h4 *ngIf="allUsers.length == 0">Nema korisnika</h4>
+    </div>
+</div>

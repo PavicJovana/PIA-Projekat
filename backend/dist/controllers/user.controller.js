@@ -54,6 +54,44 @@ class UserController {
                 }
             });
         };
+        this.getAllPendingUsers = (req, res) => {
+            user_1.default.find({ status: 2 }, (err, users) => {
+                if (err) {
+                    console.log("Error getting User in getAllPendingUsers");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(users);
+            });
+        };
+        this.getAllUsers = (req, res) => {
+            user_1.default.find({}, (err, users) => {
+                if (err) {
+                    console.log("Error getting User in getAllPendingUsers");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(users);
+            });
+        };
+        this.approveUser = (req, res) => {
+            user_1.default.updateOne({ username: req.body.username }, { status: 1 }).then(news => {
+                res.status(200).json({ 'message': 'OK', 'success': true });
+            }).catch(err => {
+                console.log("Error updating User in approveUser");
+                res.status(401).json({ 'message': "Error", 'success': false });
+                ;
+            });
+        };
+        this.rejectUser = (req, res) => {
+            user_1.default.updateOne({ username: req.body.username }, { status: 0 }).then(news => {
+                res.status(200).json({ 'message': 'OK', 'success': true });
+            }).catch(err => {
+                console.log("Error updating User in rejectUser");
+                res.status(401).json({ 'message': "Error", 'success': false });
+                ;
+            });
+        };
     }
 }
 exports.UserController = UserController;
