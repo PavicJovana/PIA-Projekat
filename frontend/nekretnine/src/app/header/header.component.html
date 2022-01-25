@@ -1,4 +1,17 @@
 <header>
     <div class="logo">TvojaNekretnina.rs</div>
-    <div *ngIf="userLoged" class="logout" (click)="logout()">Logout</div>
+    <div *ngIf="url == '/admin' || url == '/admin/add-agency' || url == '/add-location'" class="nav">
+        <a routerLink="/admin">Upravljanje korisnicima</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
+        <a routerLink="/admin/add-agency">Dodavanje agencija</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
+        <a routerLink="/add-location">Upravljanje mikrolokacijama</a>
+    </div>
+    <div *ngIf="url == '/agent'" class="nav">
+        <a routerLink="/agent">Moji oglasi</a>
+        <a routerLink="/agent/newEstate">Dodaj oglas</a>
+    </div>
+    <div *ngIf="url == '/buyer' || url == '/admin/add-agency' || url == '/add-location'" class="nav">
+        <a routerLink="/buyer">Sve nekretnine</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a routerLink="/buyer/search">Napredna pretraga</a>
+    </div>
+    <div *ngIf="userLogged" class="logout" (click)="logout()">Logout</div>
 </header>

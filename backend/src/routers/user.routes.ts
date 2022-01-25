@@ -9,8 +9,8 @@ userRouter.route('/login').post(
 userRouter.route('/register').post(
     (req, res)=> new UserController().register(req, res)
 )
-userRouter.route('/checkUsernameAndEmail').post(
-    (req, res) => new UserController().checkUsernameAndEmail(req, res)
+userRouter.route('/checkUserData').post(
+    (req, res) => new UserController().checkUserData(req, res)
 )
 userRouter.route('/getAllPendingUsers').get(
     (req, res) => new UserController().getAllPendingUsers(req, res)

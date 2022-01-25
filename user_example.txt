@@ -10,5 +10,6 @@
     "agency": null,
     "licence_number": "0123456",
     "type": 0,
+    "image": null,
     "status": 0    
 }

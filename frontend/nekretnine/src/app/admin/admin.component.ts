@@ -13,23 +13,23 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userLoged = sessionStorage.getItem('user') ? true : false;
-    if (this.userLoged) {
+    this.userLogged = sessionStorage.getItem('user') ? true : false;
+    if (this.userLogged) {
       switch (sessionStorage.getItem('userType')) {
         case "1":
-          //this.message = "Ovo je oglašivač";
-          //this.router.navigate(['/admin']);
+          this.router.navigate(['/agent']);
           break;
         case "2":
-          //this.message = "Ovo je kupac";
-          //this.router.navigate(['/admin']);
+          this.router.navigate(['/buyer']);
           break;
       }
+    } else {
+      this.router.navigate(['/']);
     }
     this.refreshUsers();
   }
 
-  userLoged: boolean;
+  userLogged: boolean;
   allPendingUsers: User[] = [];
   allUsers: User[] = [];
 
@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('userType');
     this.router.navigate(['/']);
-    this.userLoged = false; 
+    this.userLogged = false; 
   }
 
   refreshUsers() {

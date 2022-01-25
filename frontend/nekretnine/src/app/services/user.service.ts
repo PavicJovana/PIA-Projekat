@@ -26,14 +26,15 @@ export class UserService {
 
   }
 
-  checkUsernameAndEmailTaken(username: string, email: string) {
+  checkUserDataTaken(username: string, email: string, licence_number: string) {
 
     const data = {
       username: username,
-      email: email
+      email: email,
+      licence_number: licence_number
     }
 
-    return this.http.post(this.uri+"/checkUsernameAndEmail", data);
+    return this.http.post(this.uri+"/checkUserData", data);
 
   }
 

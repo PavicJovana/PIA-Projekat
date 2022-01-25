@@ -61,7 +61,11 @@
                 </tr>
                 <tr>
                     <td class="label">Grad:</td>
-                    <td><input type="text" name="city" [(ngModel)]="user.city" /></td>
+                    <td>
+                        <select name="city" [(ngModel)]="user.city">
+                            <option *ngFor="let city of allCities" value="{{city.code}}">{{city.name}}</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr *ngIf="message.city">
                     <td></td>
@@ -102,7 +106,6 @@
                 <tr>
                     <td class="label">Tip korisnika:</td>
                     <td>
-                        <input type="radio" name="type" [(ngModel)]="user.type" [value]="0" />Admin 
                         <input type="radio" name="type" [(ngModel)]="user.type" [value]="1" />Oglašivač 
                         <input type="radio" name="type" [(ngModel)]="user.type" [value]="2" />Kupac 
                     </td>
@@ -112,29 +115,58 @@
                     <td class="errorMessage">
                         {{message.type}}
                     </td>
-                </tr>
-                <tr *ngIf="user.type == 1">
-                    <td>Broj licence:</td>
-                    <td><input type="text" name="licence_number" [(ngModel)]="user.licence_number" /></td>
-                </tr>
-                <tr *ngIf="user.type == 1 && message.licence_number">
-                    <td></td>
-                    <td class="errorMessage">
-                        {{message.licence_number}}
-                    </td>
-                </tr>
+                </tr> 
                 <tr *ngIf="user.type == 1">
                     <td>Agent agencije?</td>
                     <td><input type="checkbox" name="agent" [(ngModel)]="agent" /></td>
                 </tr>
                 <tr *ngIf="user.type == 1 && agent == true">
                     <td>Agencija:</td>
-                    <td><input type="text" name="agency" [(ngModel)]="user.agency" /></td>
+                    <td>
+                        <select name="agency" [(ngModel)]="user.agency">
+                            <option *ngFor="let agency of allAgencies" value="{{agency.pib}}">{{agency.name}}</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr *ngIf="user.type == 1 && agent == true && message.agency">
                     <td></td>
                     <td class="errorMessage">
                         {{message.agency}}
+                    </td>
+                </tr>
+                <tr *ngIf="user.type == 1 && agent == true">
+                    <td>Broj licence:</td>
+                    <td><input type="text" name="licence_number" [(ngModel)]="user.licence_number" /></td>
+                </tr>
+                <tr *ngIf="user.type == 1 && agent == true && message.licence_number">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.licence_number}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Slika:</td>
+                    <td><input type="file" name="photo" (change)="fileUpload($event)" accept=".jpg, .png" /></td>
+                </tr>
+                <tr *ngIf="message.file">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.file}}
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td class="label">CAPTCHA:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="captchaLabel">{{initCaptcha}}</div></td>
+                    <td><input type="text" name="submitCaptcha"  [(ngModel)]="submitCaptcha"  title="Ponovite karaktere ispisane u levom polju" /></td>
+                </tr>
+                <tr *ngIf="message.captcha">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.captcha}}
                     </td>
                 </tr>
                 <tr>
@@ -147,7 +179,30 @@
                         Imate nalog? <a routerLink="/"><i>Prijavite se</i></a>
                     </td>
                 </tr>
+                
+                <tr>
+                    <td colspan="2" class="loginHere">
+                        <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                        <span *ngIf="successMessage" class="successMessage">{{successMessage}}</span>
+                    </td>
+                </tr>
             </table>
         </form>
     </div>
 </div>
+
+<!-- <div class="image-preview" >
+    <img [src]="imagePreview" >
+</div>
+<div class="row">
+
+    <figure class="image" accept=".jpg,.png" *ngIf='file_url'>
+        <img [src]="file_url" width="300px" height="300px" />
+    </figure>
+    <div class="img_div" *ngIf='!file_url'>Slika</div>
+    <label for="file-upload" class="custom-file-upload btn">
+         Dodaj sliku
+    </label>
+    <input #fileValue name="fileValue" id="file-upload" type="file" (change)='fileUpload($event)' />
+
+</div> -->

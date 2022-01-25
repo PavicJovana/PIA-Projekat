@@ -27,11 +27,13 @@ class UserController {
                 res.status(401).json({ 'message': 'Error!', 'success': false });
             });
         };
-        this.checkUsernameAndEmail = (req, res) => {
+        this.checkUserData = (req, res) => {
             let username = req.body.username;
             let email = req.body.email;
+            let licence_number = req.body.licence_number;
             let usernameTaken = false;
             let emailTaken = false;
+            let licenceNumberTaken = false;
             user_1.default.findOne({ username: username }, (err, user) => {
                 if (err) {
                     console.log("Error getting User in checkUsernameAndEmail");
@@ -48,7 +50,21 @@ class UserController {
                         else {
                             if (user)
                                 emailTaken = true;
-                            res.status(200).json({ 'usernameTaken': usernameTaken, 'emailTaken': emailTaken });
+                            if (licence_number) {
+                                user_1.default.findOne({ licence_number: licence_number }, (err, user) => {
+                                    if (err) {
+                                        console.log("Error getting User in checkUsernameAndEmail");
+                                        res.status(401).json({ 'message': 'Error!' });
+                                    }
+                                    else {
+                                        if (user)
+                                            licenceNumberTaken = true;
+                                        res.status(200).json({ 'usernameTaken': usernameTaken, 'emailTaken': emailTaken, 'licenceNumberTaken': licenceNumberTaken });
+                                    }
+                                });
+                            }
+                            else
+                                res.status(200).json({ 'usernameTaken': usernameTaken, 'emailTaken': emailTaken, 'licenceNumberTaken': licenceNumberTaken });
                         }
                     });
                 }

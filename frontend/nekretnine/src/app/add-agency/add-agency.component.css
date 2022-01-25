@@ -1,0 +1,55 @@
+h1 {
+    margin: auto;
+    padding-bottom: 2em;
+}
+
+.addAgencyTable {
+    background-color: #ace6ea;
+    padding: 55px 40px 40px 40px;
+    border-radius: 27px;
+}
+
+table {
+    margin: auto;
+}
+
+.label {
+    padding-right: 10px;
+}
+
+input, select {
+    opacity: 0.8;
+}
+
+input[type="text"], select {
+    width: 100%;
+}
+
+.addAgencyButton {
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.addAgencyButton > button {
+    height: 30px;
+    width: 130px;
+    border-radius: 27px 27px 27px 27px;
+}
+
+.errorMessage {
+    color: red;
+    font-style: italic;
+    padding-left: 12px;
+    max-width: 220px;
+}
+
+.successMessage {
+    color: rgb(3, 199, 3);
+    font-style: italic;
+}
+
+.messages {
+    text-align: center;
+}
+

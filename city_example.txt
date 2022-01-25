@@ -1,0 +1,12 @@
+{
+    "name": "Beograd",
+    "code": "beograd"
+}
+{
+    "name": "Novi Sad",
+    "code": "novi_sad"
+}
+{
+    "name": "Sabac",
+    "code": "sabac"
+}

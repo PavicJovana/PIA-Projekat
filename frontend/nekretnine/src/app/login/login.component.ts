@@ -19,12 +19,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/admin']);
           break;
         case "1":
-          this.message = "Ovo je oglašivač";
-          //this.router.navigate(['/admin']);
+          this.router.navigate(['/agent']);
           break;
         case "2":
-          this.message = "Ovo je kupac";
-          //this.router.navigate(['/admin']);
+          this.router.navigate(['/buyer']);
           break;
       }
     }

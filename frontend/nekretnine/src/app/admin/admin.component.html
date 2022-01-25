@@ -1,10 +1,7 @@
-<header>
-    <div class="logo">TvojaNekretnina.rs</div>
-    <div class="nav"><a routerLink="/admin">Upravljanje korisnicima</a> | <a routerLink="/agency">Dodavanje agencija</a> | <a routerLink="/location">Upravljanje mikrolokacijama</a> </div>
-    <div *ngIf="userLoged" class="logout" (click)="logout()">Logout</div>
-</header>
+<app-header></app-header>
 
-<div class="adminBody">
+<div class="row adminBody">
+<div class="col-md-12">
     <h1>Upravljanje korisnicima</h1>
 
     <div class="pendingUsers">
@@ -44,7 +41,11 @@
     </div>
 
     <div class="allUsers">
-        <h3>Svi korisnici</h3>
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-8"><h3>Svi korisnici</h3></div>
+            <div class="col-md-2"><h5 class="addUser"><a routerLink="/user">Dodaj korisnika</a></h5></div>
+        </div>
 
         <table *ngIf="allUsers.length > 0">
             <tr>
@@ -82,4 +83,5 @@
         </table>
         <h4 *ngIf="allUsers.length == 0">Nema korisnika</h4>
     </div>
+</div>
 </div>

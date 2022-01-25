@@ -29,7 +29,7 @@ input {
     opacity: 0.8;
 }
 
-input[type="text"], input[type="password"], input[type="date"] {
+input[type="text"], input[type="password"], input[type="date"], select {
     width: 100%;
 }
 
@@ -63,4 +63,17 @@ input[type="date"] {
     font-style: italic;
     padding-left: 12px;
     max-width: 220px;
+}
+
+.successMessage {
+    color: rgb(3, 199, 3);
+    font-style: italic;
+}
+
+.captchaLabel {
+    opacity: 0.8;
+    background-color: white;
+    border: 1px solid rgb(133, 133, 133);;
+    height: 30px;
+    padding-left: 10px;
 }

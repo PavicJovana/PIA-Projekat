@@ -47,6 +47,9 @@ let User = new Schema({
         //1 - prihvacen
         //2 - na cekanju
         type: Number
+    },
+    image: {
+        type: String
     }
 });
 exports.default = mongoose_1.default.model('User', User, 'users');

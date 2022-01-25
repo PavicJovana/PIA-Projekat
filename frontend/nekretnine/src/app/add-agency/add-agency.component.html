@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+<div class="row adminBody">
+<div class="col-md-12">
+    <h1>Dodavanje agencije</h1>
+
+    <div class="addAgencyTable">
+        <form name="myform">
+            <table>
+                <tr>
+                    <td class="label">Naziv agencije:</td>
+                    <td><input type="text" name="name" [(ngModel)]="agency.name" /></td>
+                </tr>
+                <tr *ngIf="message.name">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Adresa:</td>
+                    <td><input type="text" name="address" [(ngModel)]="agency.address" /></td>
+                </tr>
+                <tr *ngIf="message.address">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.address}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Grad:</td>
+                    <td>
+                        <select name="city" [(ngModel)]="agency.city">
+                            <option *ngFor="let city of allCities" value="{{city.code}}">{{city.name}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr *ngIf="message.city">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.city}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Telefon:</td>
+                    <td><input type="text" name="phone" [(ngModel)]="agency.phone" /></td>
+                </tr>
+                <tr *ngIf="message.phone">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.phone}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">PIB:</td>
+                    <td><input type="text" name="passwordSecond" [(ngModel)]="agency.pib" /></td>
+                </tr>
+                <tr *ngIf="message.pib">
+                    <td></td>
+                    <td class="errorMessage">
+                        {{message.pib}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="addAgencyButton">
+                        <button (click)="addAgency()" type="submit">Dodaj agenciju</button>
+                    </td>
+                </tr>                
+                <tr>
+                    <td colspan="2" class="messages">
+                        <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                        <span *ngIf="successMessage" class="successMessage">{{successMessage}}</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+</div>
+</div>

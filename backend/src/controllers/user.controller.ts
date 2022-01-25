@@ -24,11 +24,13 @@ export class UserController {
         });
     }
 
-    checkUsernameAndEmail = (req: express.Request, res:express.Response) => {
+    checkUserData = (req: express.Request, res:express.Response) => {
         let username = req.body.username;
         let email = req.body.email;
+        let licence_number = req.body.licence_number;
         let usernameTaken = false;
         let emailTaken = false;
+        let licenceNumberTaken = false;
 
         User.findOne({username: username}, (err, user)=>{
             if (err) {
@@ -42,15 +44,21 @@ export class UserController {
                         res.status(401).json({'message': 'Error!'});
                     } else {
                         if (user) emailTaken = true;
-                        res.status(200).json({'usernameTaken': usernameTaken, 'emailTaken': emailTaken});
+                        if (licence_number) {
+                            User.findOne({licence_number: licence_number}, (err, user)=>{
+                                if (err) {
+                                    console.log("Error getting User in checkUsernameAndEmail");
+                                    res.status(401).json({'message': 'Error!'});
+                                } else {
+                                    if (user) licenceNumberTaken = true;
+                                    res.status(200).json({'usernameTaken': usernameTaken, 'emailTaken': emailTaken, 'licenceNumberTaken': licenceNumberTaken});
+                                }
+                            })
+                        } else res.status(200).json({'usernameTaken': usernameTaken, 'emailTaken': emailTaken, 'licenceNumberTaken': licenceNumberTaken});
                     }
                 })
             }
         })
-
-        
-
-
     }
 
     getAllPendingUsers = (req: express.Request, res: express.Response) => {
