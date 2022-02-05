@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "name": "Test",
+  "city": "beograd",
+  "city_region": "cukarica",
+  "microlocation": "sremcica",
+  "street": "Doljanska",
+  "size": 70,
+  "rooms": 3,
+  "construction_year": 1971,
+  "state": "renovirano",
+  "heating": "struja",
+  "floor": "1",
+  "total_floors": 2,
+  "parking": 1,
+  "monthly_utilities": 100,
+  "price": 102000,
+  "about": "Ceo sprat je jedan stan, renoviran 2021/22",
+  "characteristics": ["klima", "internet"],
+  "type": "stan",
+  "agent": "jpavic",
+  "sold": 0
+}

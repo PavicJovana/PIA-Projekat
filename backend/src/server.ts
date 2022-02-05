@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import userRouter from './routers/user.routes';
 import cityRouter from './routers/city.routes';
 import agencyRouter from './routers/agency.routes';
+import realestateRouter from './routers/realestate.routes';
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ const router = express.Router();
 router.use('/users', userRouter);
 router.use('/cities', cityRouter);
 router.use('/agencies', agencyRouter);
+router.use('/offers', realestateRouter);
 
 app.use('/', router);
 

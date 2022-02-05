@@ -1,0 +1,43 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+h3, h4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.myOffers {
+    background-color: #ace6ea;
+    padding: 20px 40px 20px 40px;
+    border-radius: 27px;
+}
+
+table {  
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0 10px;
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 0, 0, .5);
+    overflow-wrap: break-word;
+    max-width: 210px;
+}
+
+th {
+    padding-bottom: 5px;
+}
+
+td > button {
+    width: 73px;
+    border-radius: 27px 27px 27px 27px;
+    margin: 5px 5px 5px 0;
+}
+
+table > tr:last-child > td {
+    border-bottom: none;
+}

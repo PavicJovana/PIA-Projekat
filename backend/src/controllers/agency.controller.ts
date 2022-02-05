@@ -20,7 +20,7 @@ export class AgencyController {
     addAgency = (req: express.Request, res: express.Response)=>{
         let agency = new Agency(req.body);
 
-        agency.save().then(user=>{
+        agency.save().then(agency=>{
             res.status(200).json({'message': 'Agency added', 'success': true})
         }).catch(err=>{
             res.status(401).json({'message': 'Error!', 'success': false})

@@ -91,7 +91,7 @@ class UserController {
             });
         };
         this.approveUser = (req, res) => {
-            user_1.default.updateOne({ username: req.body.username }, { status: 1 }).then(news => {
+            user_1.default.updateOne({ username: req.body.username }, { status: 1 }).then(user => {
                 res.status(200).json({ 'message': 'OK', 'success': true });
             }).catch(err => {
                 console.log("Error updating User in approveUser");
@@ -100,7 +100,7 @@ class UserController {
             });
         };
         this.rejectUser = (req, res) => {
-            user_1.default.updateOne({ username: req.body.username }, { status: 0 }).then(news => {
+            user_1.default.updateOne({ username: req.body.username }, { status: 0 }).then(user => {
                 res.status(200).json({ 'message': 'OK', 'success': true });
             }).catch(err => {
                 console.log("Error updating User in rejectUser");

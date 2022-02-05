@@ -1,1 +1,31 @@
-<p>agent works!</p>
+<app-header></app-header>
+
+<div class="row adminBody">
+<div class="col-md-12">
+    <h1>Moji oglasi</h1>
+
+    <div class="myOffers">
+
+        <table *ngIf="allMyOffers.length > 0">
+            <tr>
+                <th>Naziv</th>
+                <th>Cena</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let offer of allMyOffers">
+                <td>{{offer.name}}</td>
+                <td>{{(offer.price | number).split(',').join(' ')}}</td>
+                <td *ngIf="offer.sold == 0">
+                    <button (click)="editOffer(offer.id)">Izmeni</button> 
+                    <button (click)="sellOffer(offer.id)">Prodato</button>
+                </td>
+                <td *ngIf="offer.sold == 1">
+                    <b>Prodato</b>
+                </td>
+            </tr>
+        </table>
+        <h4 *ngIf="allMyOffers.length == 0">Nema oglasa</h4>
+    </div>
+
+</div>
+</div>

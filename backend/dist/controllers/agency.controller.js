@@ -24,7 +24,7 @@ class AgencyController {
         };
         this.addAgency = (req, res) => {
             let agency = new agency_1.default(req.body);
-            agency.save().then(user => {
+            agency.save().then(agency => {
                 res.status(200).json({ 'message': 'Agency added', 'success': true });
             }).catch(err => {
                 res.status(401).json({ 'message': 'Error!', 'success': false });

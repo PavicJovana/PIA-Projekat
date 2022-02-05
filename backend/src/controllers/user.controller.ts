@@ -80,7 +80,7 @@ export class UserController {
     }
 
     approveUser = (req: express.Request, res: express.Response) => {
-        User.updateOne({username: req.body.username}, {status: 1}).then(news => {
+        User.updateOne({username: req.body.username}, {status: 1}).then(user => {
             res.status(200).json({'message': 'OK', 'success': true});
         }).catch(err => {
             console.log("Error updating User in approveUser");
@@ -89,7 +89,7 @@ export class UserController {
     }
 
     rejectUser = (req: express.Request, res: express.Response) => {
-        User.updateOne({username: req.body.username}, {status: 0}).then(news => {
+        User.updateOne({username: req.body.username}, {status: 0}).then(user => {
             res.status(200).json({'message': 'OK', 'success': true});
         }).catch(err => {
             console.log("Error updating User in rejectUser");
