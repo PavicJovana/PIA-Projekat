@@ -68,7 +68,10 @@ let Realestate = new Schema({
     },
     sold: {
         type: Number
-    }
+    },
+    images: {
+        type: Array
+    },
 });
 exports.default = mongoose_1.default.model('Realestate', Realestate, 'realestate');
 //# sourceMappingURL=realestate.js.map

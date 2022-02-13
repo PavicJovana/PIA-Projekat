@@ -1,0 +1,298 @@
+<app-header></app-header>
+
+<div class="row agentBody">
+    <div class="col-md-12">
+        <div  class="upload">
+            <h2>Ucitajte iz JSON fajla&nbsp;<a routerLink="/agent/upload-offer">ovde</a>.</h2>
+        </div>
+
+        <div class="registerTable">
+            <h2>Dodavanje oglasa</h2>
+            <form name="myform">
+                <table>
+                    <tr>
+                        <td class="label">Naziv:</td>
+                        <td><input type="text" name="name" [(ngModel)]="offer.name" /></td>
+                    </tr>
+                    <tr *ngIf="message.name">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Grad:</td>
+                        <td>
+                            <select name="city" [(ngModel)]="offer.city" (change)="refreshCityRegions()">
+                                <option *ngFor="let city of allCities" value="{{city.code}}">{{city.name}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.city">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.city}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Opstina:</td>
+                        <td>
+                            <select name="city_region" [(ngModel)]="offer.city_region" (change)="refreshMicroLocations()">
+                                <option *ngFor="let region of allCityRegions" value="{{region.code}}">{{region.name}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.city_region">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.city_region}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Mikrolokacija:</td>
+                        <td>
+                            <select name="microlocation" [(ngModel)]="offer.microlocation">
+                                <option *ngFor="let microlocation of allMicroLocations" value="{{microlocation.code}}">{{microlocation.name}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.microlocation">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.microlocation}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Ulica:</td>
+                        <td><input type="text" name="street" [(ngModel)]="offer.street" /></td>
+                    </tr>
+                    <tr *ngIf="message.street">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.street}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Kvadratura:</td>
+                        <td><input type="number" name="size" [(ngModel)]="offer.size" /></td>
+                    </tr>
+                    <tr *ngIf="message.size">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.size}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Broj soba:</td>
+                        <td><input type="number" name="rooms" [(ngModel)]="offer.rooms"/></td>
+                    </tr>
+                    <tr *ngIf="message.rooms">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.rooms}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Godina gradnje:</td>
+                        <td><input type="text" name="construction_year" [(ngModel)]="offer.construction_year" /></td>
+                    </tr>
+                    <tr *ngIf="message.construction_year">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.construction_year}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Stanje:</td>
+                        <td>
+                            <select name="state" [(ngModel)]="offer.state">
+                                <option value="izvorno">Izvorno</option>
+                                <option value="renovirano">Renovirano</option>
+                                <option value="lux">LUX</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.state">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.state}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Grejanje:</td>
+                        <td>
+                            <input type="text" name="heating" [(ngModel)]="offer.heating" />
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.heating">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.heating}}
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>Sprat</td>
+                        <td><input type="text" name="floor" [(ngModel)]="offer.floor" /></td>
+                    </tr>
+                    <tr *ngIf="message.floor">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.floor}}
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>Ukupna spratnost:</td>
+                        <td><input type="number" name="total_floors" [(ngModel)]="offer.total_floors"/></td>
+                    </tr>
+                    <tr *ngIf="message.total_floors">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.total_floors}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ima parking:</td>
+                        <td>
+                            <input type="radio" name="parking" [(ngModel)]="offer.parking" value="1" /> Da
+                            <input type="radio" name="parking" [(ngModel)]="offer.parking" value="0" /> Ne
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.parking">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.parking}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Mesečni troškovi:</td>
+                        <td><input type="number" name="monthly_utilities" [(ngModel)]="offer.monthly_utilities" /></td>
+                    </tr>
+                    <tr *ngIf="message.monthly_utilities">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.monthly_utilities}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Cena:</td>
+                        <td><input type="number" name="price" [(ngModel)]="offer.price" /></td>
+                    </tr>
+                    <tr *ngIf="message.price">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.price}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Opis:</td>
+                        <td><textarea type="number" name="about" [(ngModel)]="offer.about" ></textarea></td>
+                    </tr>
+                    <tr *ngIf="message.about">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.about}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Karakteristike:</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="terasa" [(ngModel)]="characteristics.terasa" value="terasa" /> Terasa
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="lodja" [(ngModel)]="characteristics.lodja" value="lodja" /> Lođa
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="balkon" [(ngModel)]="characteristics.balkon" value="balkon" /> Francuski balkon
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="lift" [(ngModel)]="characteristics.lift" value="lift" /> Lift
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="podrum" [(ngModel)]="characteristics.podrum" value="podrum" /> Podrum
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="garaza" [(ngModel)]="characteristics.garaza" value="garaza" /> Garaža
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="basta" [(ngModel)]="characteristics.basta" value="basta" /> Sa baštom
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="klima" [(ngModel)]="characteristics.klima" value="klima" /> Klima
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="internet" [(ngModel)]="characteristics.internet" value="internet" /> Internet
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="interfon" [(ngModel)]="characteristics.interfon" value="interfon" /> Interfon
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" name="telefon" [(ngModel)]="characteristics.telefon" value="telefon" /> Telefon
+                                </div>
+                                <div class="col-md-4"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Tip nekretnine:</td>
+                        <td>
+                            <select name="type" [(ngModel)]="offer.type">
+                                <option value="stan">Stan</option>
+                                <option value="kuca">Kuća</option>
+                                <option value="vikendica">Vikendica</option>
+                                <option value="lokal">Lokal</option>
+                                <option value="magacin">Magacin</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="message.type">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.type}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Slike:</td>
+                        <td><input type="file" name="photo" id="file" multiple (change)="fileUpload($event)" accept=".jpg, .png" /></td>
+                    </tr>
+                    <tr *ngIf="message.files">
+                        <td></td>
+                        <td class="errorMessage">
+                            {{message.files}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="saveButton">
+                            <button (click)="saveRealestate()" type="submit">Sačuvaj</button>
+                        </td>
+                    </tr>
+                    
+                    <tr *ngIf="fileSuccess.length">
+                        <td colspan="2" class="infoMessage">
+                            <span *ngFor="let mes of fileSuccess">{{mes}}<br/></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="loginHere">
+                            <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                            <span *ngIf="successMessage" class="successMessage">{{successMessage}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="fileSuccess.length == fileURLs.length && fileSuccess.length > 0" colspan="2" class="saveButton">
+                            <button (click)="resetForm()" type="button">Unesi novu</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

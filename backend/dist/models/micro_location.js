@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
-let CityRegion = new Schema({
-    city: {
+let MicroLocation = new Schema({
+    city_region: {
         type: String
     },
     name: {
@@ -16,5 +16,5 @@ let CityRegion = new Schema({
         type: String
     }
 });
-exports.default = mongoose_1.default.model('CityRegion', CityRegion, 'city_region');
-//# sourceMappingURL=city_region.js.map
+exports.default = mongoose_1.default.model('MicroLocation', MicroLocation, 'micro_location');
+//# sourceMappingURL=micro_location.js.map

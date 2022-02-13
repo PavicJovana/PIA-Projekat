@@ -1,5 +1,5 @@
 export class CityRegion {
-    city_code: string;
+    city: string;
     name: string;
     code: string;
 }

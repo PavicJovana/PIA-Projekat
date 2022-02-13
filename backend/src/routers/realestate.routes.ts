@@ -15,5 +15,8 @@ realestateRouter.route('/sellRealestate').post(
 realestateRouter.route('/addRealestate').post(
     (req, res)=> new RealestateController().addRealestate(req, res)
 )
+realestateRouter.route('/addImage').post(
+    (req, res)=> new RealestateController().addImage(req, res)
+)
 
 export default realestateRouter; 

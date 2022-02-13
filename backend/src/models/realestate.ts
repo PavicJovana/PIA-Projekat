@@ -65,7 +65,10 @@ let Realestate = new Schema({
     },
     sold: {
         type: Number
-    }
+    },
+    images: {
+        type: Array
+    },
 })
 
 export default mongoose.model('Realestate', Realestate, 'realestate')

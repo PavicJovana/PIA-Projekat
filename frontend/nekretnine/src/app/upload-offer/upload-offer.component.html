@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="upload">
+            <div id="step-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Ucitavanje JSON fajla (Korak 1)</h3>
+                        <div class="form">
+                            <form id="jsonUpload">
+                                <table>
+                                    <tr>
+                                        <td>JSON fajl:</td>
+                                        <td><input type="file" name="jsonFile" id="file" (change)="fileUpload($event)" accept=".json" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="errorMessage">{{messageFile}}</td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="step-2" style="display: none;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Ucitavanje JSON fajla (Korak 2)</h3>
+                        <div class="form">
+                            <form id="a">
+                                <table>
+                                    <tr>
+                                        <td>Nesto fajl:</td>
+                                        <td><input type="file" name="jsonFile" id="a" (change)="fileUpload($event)" accept=".json" /></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="step-3" style="display: none;">
+                
+            </div>
+        </div>
+
+    </div>
+</div>

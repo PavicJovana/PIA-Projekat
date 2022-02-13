@@ -34,4 +34,13 @@ export class OfferService {
   addOffer(data: Object) {
     return this.http.post(this.uri+"/addRealestate", data);
   }
+
+  addOfferImage(id: number, image: string) {
+    const data = {
+      id: id,
+      image: image
+    }
+
+    return this.http.post(this.uri+"/addImage", data);
+  }
 }

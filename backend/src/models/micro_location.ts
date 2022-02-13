@@ -2,8 +2,8 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema;
 
-let CityRegion = new Schema({
-    city: {
+let MicroLocation = new Schema({
+    city_region: {
         type: String
     },
     name: {
@@ -14,4 +14,4 @@ let CityRegion = new Schema({
     }
 })
 
-export default mongoose.model('CityRegion', CityRegion, 'city_region')
+export default mongoose.model('MicroLocation', MicroLocation, 'micro_location')

@@ -1,0 +1,105 @@
+h1 {
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.upload {
+    border-radius:  27px 27px 27px 27px;
+    background-color: #ace6ea;
+    padding: 45px 20px;
+    margin-bottom: 15px;
+    width: 650px;
+    margin-top: 40px;
+}
+
+.upload h3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 30px;
+}
+
+.upload form {
+    margin: auto;
+}
+
+table {
+    margin: auto;
+}
+
+table > tr > td:last-child > input {
+    width: 220px;
+}
+
+table > tr > td:first-child {
+    padding-top: 3px;
+    width: 80px;
+}
+
+table > tr > td {
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+
+.label {
+    padding-right: 10px;
+}
+
+input, select, textarea {
+    opacity: 0.8;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    height: 30px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.saveButton {
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.saveButton > button {
+    height: 30px;
+    width: 100px;
+    border-radius: 27px 27px 27px 27px;
+}
+
+.errorMessage {
+    color: red;
+    font-style: italic;
+    padding-left: 12px;
+    max-width: 220px;
+}
+
+.infoMessage {
+    color: yellow;
+    font-style: italic;
+    padding-left: 12px;
+    max-width: 220px;
+    text-align: center;
+}
+
+.successMessage {
+    color: rgb(3, 199, 3);
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+.loginHere {
+    text-align: center;
+}

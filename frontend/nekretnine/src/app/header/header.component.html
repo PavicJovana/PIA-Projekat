@@ -5,11 +5,11 @@
         <a routerLink="/admin/add-agency">Dodavanje agencija</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
         <a routerLink="/add-location">Upravljanje mikrolokacijama</a>
     </div>
-    <div *ngIf="url == '/agent'" class="nav">
+    <div *ngIf="url == '/agent' || url == '/agent/add-offer' || url == '/agent/upload-offer'" class="nav">
         <a routerLink="/agent">Moji oglasi</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-        <a routerLink="/agent/newEstate">Dodaj oglas</a>
+        <a routerLink="/agent/add-offer">Dodaj oglas</a>
     </div>
-    <div *ngIf="url == '/buyer' || url == '/admin/add-agency' || url == '/add-location'" class="nav">
+    <div *ngIf="url == '/buyer'" class="nav">
         <a routerLink="/buyer">Sve nekretnine</a> &nbsp;&nbsp;|&nbsp;&nbsp;
         <a routerLink="/buyer/search">Napredna pretraga</a>
     </div>

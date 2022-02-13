@@ -36,11 +36,42 @@ class RealestateController {
             });
         };
         this.addRealestate = (req, res) => {
-            let realestate = new realestate_1.default(req.body);
-            realestate.save().then(realestate => {
-                res.status(200).json({ 'message': 'Realestate added', 'success': true });
-            }).catch(err => {
-                res.status(401).json({ 'message': 'Error!', 'success': false });
+            realestate_1.default.countDocuments({}, (err, realestates) => {
+                if (err) {
+                    console.log("Error getting number of realestates in addRealestate");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else {
+                    let realestate = new realestate_1.default(req.body);
+                    realestate.id = realestates + 1;
+                    realestate.save().then(realestate => {
+                        res.status(200).json({ 'message': 'Realestate added', 'success': true, 'realestate': realestate });
+                    }).catch(err => {
+                        res.status(401).json({ 'message': 'Error!', 'success': false });
+                    });
+                }
+            });
+        };
+        this.addImage = (req, res) => {
+            let id = req.body.id;
+            let image = req.body.image;
+            realestate_1.default.findOne({ id: id }, (err, realestate) => {
+                if (err) {
+                    console.log("Error getting realestate in addImage");
+                    res.status(401).json({ 'message': 'Error!', 'success': false });
+                }
+                else {
+                    if (realestate) {
+                        realestate_1.default.collection.updateOne({ 'id': parseInt(id) }, { $push: { 'images': image } }).then(realestate => {
+                            res.status(200).json({ 'message': 'Realestate image added', 'success': true, 'realestate': realestate });
+                        }).catch(err => {
+                            res.status(401).json({ 'message': 'Error!', 'success': false });
+                        });
+                    }
+                    else {
+                        res.status(401).json({ 'message': 'Error!', 'success': false });
+                    }
+                }
             });
         };
     }
