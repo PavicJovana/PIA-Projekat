@@ -97,4 +97,15 @@ export class UserController {
         })
     }
 
+    getUser = (req: express.Request, res:express.Response) => {
+        let username = req.body.username;
+
+        User.findOne({username: username}, (err, user)=>{
+            if (err) {
+                console.log("Error getting User in getUser");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(user);
+        })
+    }
+
 }

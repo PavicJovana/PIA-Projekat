@@ -13,5 +13,6 @@ userRouter.route('/getAllPendingUsers').get((req, res) => new user_controller_1.
 userRouter.route('/getAllUsers').get((req, res) => new user_controller_1.UserController().getAllUsers(req, res));
 userRouter.route('/approveUser').post((req, res) => new user_controller_1.UserController().approveUser(req, res));
 userRouter.route('/rejectUser').post((req, res) => new user_controller_1.UserController().rejectUser(req, res));
+userRouter.route('/getUser').post((req, res) => new user_controller_1.UserController().getUser(req, res));
 exports.default = userRouter;
 //# sourceMappingURL=user.routes.js.map

@@ -24,5 +24,8 @@ userRouter.route('/approveUser').post(
 userRouter.route('/rejectUser').post(
     (req, res) => new UserController().rejectUser(req, res)
 )
+userRouter.route('/getUser').post(
+    (req, res) => new UserController().getUser(req, res)
+)
 
 export default userRouter;

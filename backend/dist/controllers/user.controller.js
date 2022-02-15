@@ -108,6 +108,17 @@ class UserController {
                 ;
             });
         };
+        this.getUser = (req, res) => {
+            let username = req.body.username;
+            user_1.default.findOne({ username: username }, (err, user) => {
+                if (err) {
+                    console.log("Error getting User in getUser");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(user);
+            });
+        };
     }
 }
 exports.UserController = UserController;

@@ -33,8 +33,7 @@ table > tr > td:last-child > input {
 }
 
 table > tr > td:first-child {
-    padding-top: 3px;
-    width: 80px;
+    width: 90px;
 }
 
 table > tr > td {
@@ -67,7 +66,7 @@ textarea {
 
 .saveButton > button {
     height: 30px;
-    width: 100px;
+    width: 125px;
     border-radius: 27px 27px 27px 27px;
 }
 

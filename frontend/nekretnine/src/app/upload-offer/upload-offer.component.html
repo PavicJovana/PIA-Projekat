@@ -18,6 +18,11 @@
                                         <td></td>
                                         <td class="errorMessage">{{messageFile}}</td>
                                     </tr>
+                                    <tr *ngIf="fileValid">
+                                        <td colspan="2" class="saveButton">
+                                            <button (click)="step2()" type="submit">Sledeci korak</button>
+                                        </td>
+                                    </tr>
                                 </table>
                             </form>
                         </div>
@@ -27,13 +32,22 @@
             <div id="step-2" style="display: none;">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Ucitavanje JSON fajla (Korak 2)</h3>
+                        <h3>Ucitavanje slika (Korak 2)</h3>
                         <div class="form">
                             <form id="a">
                                 <table>
                                     <tr>
-                                        <td>Nesto fajl:</td>
-                                        <td><input type="file" name="jsonFile" id="a" (change)="fileUpload($event)" accept=".json" /></td>
+                                        <td>Slike:</td>
+                                        <td><input type="file" name="photo" id="file" multiple (change)="imageUpload($event)" accept=".jpg, .png" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="errorMessage">{{messageImages}}</td>
+                                    </tr>
+                                    <tr *ngIf="imagesValid">
+                                        <td colspan="2" class="saveButton">
+                                            <button (click)="step3()" type="submit">Sledeci korak</button>
+                                        </td>
                                     </tr>
                                 </table>
                             </form>
@@ -42,7 +56,44 @@
                 </div>
             </div>
             <div id="step-3" style="display: none;">
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Kratak pregled (Korak 2)</h3>
+                        <div class="form">
+                            <form id="a">
+                                <table>
+                                    <tr>
+                                        <td>Naziv:</td>
+                                        <td>{{realestate.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lokacija:</td>
+                                        <td>{{realestate.city}} / {{realestate.city_region}} / {{realestate.microlocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kvadratura:</td>
+                                        <td>{{realestate.size}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cena:</td>
+                                        <td>{{realestate.price}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="saveButton">
+                                            <button (click)="save()" type="submit">Sledeci korak</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                                            <span *ngIf="successMessage" class="successMessage">{{successMessage}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

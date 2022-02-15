@@ -62,4 +62,12 @@ export class UserService {
     return this.http.post(this.uri+"/rejectUser", data);
   }
 
+  getUser(username: string) {
+    const data = {
+      username: username
+    }
+
+    return this.http.post(this.uri+"/getUser", data);
+  }
+
 }
