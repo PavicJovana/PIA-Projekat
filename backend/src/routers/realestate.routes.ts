@@ -9,6 +9,9 @@ realestateRouter.route('/getAll').get(
 realestateRouter.route('/getAllAgentsOffers').post(
     (req, res) => new RealestateController().getAllAgentsOffers(req, res)
 )
+realestateRouter.route('/getAllMicrolocationType').post(
+    (req, res) => new RealestateController().getAllMicrolocationType(req, res)
+)
 realestateRouter.route('/sellRealestate').post(
     (req, res) => new RealestateController().sellRealestate(req, res)
 )

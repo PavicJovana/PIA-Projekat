@@ -1,5 +1,4 @@
 import express from "express";
-import realestate from "../models/realestate";
 import Realestate from "../models/realestate";
 
 export class RealestateController {
@@ -70,5 +69,14 @@ export class RealestateController {
             }
         })
 
+    }
+
+    getAllMicrolocationType = (req: express.Request, res: express.Response) => {
+        Realestate.find({type: req.body.type, microlocation: req.body.microlocation, sold: 0}, (err, realestates)=>{
+            if (err) {
+                console.log("Error getting Realestates in getAllMicrolocationType");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(realestates);
+        })
     }
 }

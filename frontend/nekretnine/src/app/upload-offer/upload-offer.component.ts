@@ -129,6 +129,12 @@ export class UploadOfferComponent implements OnInit {
         return
       }
 
+      //check about length
+      let about = uploaded.Realestate.About.split(' ');
+      if (about.length > 50) {
+        this.messageFile = "Opis (About) može da ima maksmalno 50 reči"
+      }
+
       //check numbers are numbers
       if (isNaN(+uploaded.Realestate.Area)) {
         this.messageFile = "Area mora biti broj!";
@@ -209,12 +215,15 @@ export class UploadOfferComponent implements OnInit {
               for(let micro of this.allMicrolocations) {
                 if(region.code == micro.city_region && microlocation.toLowerCase() == micro.name.toLowerCase()) {
                   foundMicro = true;
+                  microlocation = micro.code;
                   break;
                 }
               }
+              city_region = region.code;
               break;
             }
           }
+          city = city1.code;
           break;
         }
       }
@@ -241,26 +250,26 @@ export class UploadOfferComponent implements OnInit {
       if (uploaded.Realestate.Type) {
         switch (uploaded.Realestate.Type.toLowerCase()) {
           case "apartment":
-            this.realestate.type = "apartment";
+            this.realestate.type = "stan";
             break;
           case "house":
-            this.realestate.type = "house";
+            this.realestate.type = "kuca";
             break;
           case "cabin":
-            this.realestate.type = "cabin";
+            this.realestate.type = "vikendica";
             break;
           case "local":
-            this.realestate.type = "local";
+            this.realestate.type = "lokal";
             break;
           case "warehouse":
-            this.realestate.type = "warehouse";
+            this.realestate.type = "magacin";
             break;
           default:
-            this.realestate.type = "apartment";
+            this.realestate.type = "stan";
             break;
         }
       } else {
-        this.realestate.type = "apartment"
+        this.realestate.type = "stan"
       }
 
       this.realestate.name = uploaded.Realestate.Name;

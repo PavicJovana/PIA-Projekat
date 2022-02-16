@@ -1,1 +1,109 @@
-<p>buyer works!</p>
+<app-header></app-header>
+
+<div class="row buyerBody">
+<div class="col-md-12">
+    <h1>Upravljanje korisnicima</h1>
+
+    <div class="search">
+        <h3>Pretraga:</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="searchParam row">
+                    <div class="col-md-6 label">
+                        <span>Tip nekretnine: </span>
+                    </div>
+                    <div class="col-md-6 input">
+                        <select name="type" [(ngModel)]="type">
+                            <option value="stan">Stan</option>
+                            <option value="kuca">Kuća</option>
+                            <option value="vikendica">Vikendica</option>
+                            <option value="lokal">Lokal</option>
+                            <option value="magacin">Magacin</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 message">
+                        <span>{{message}}</span>
+                    </div>
+                </div>
+                <div class="searchParam row">
+                    <div class="col-md-6 label">
+                        <span>Lokacija: </span>
+                    </div>
+                    <div class="col-md-6 input">
+                        <input type="text" placeholder="grad/opstina/mikro lokacija" [(ngModel)]="location" name="location">
+                    </div>
+                </div>
+                <div class="searchParam row">
+                    <div class="col-md-6 label">
+                        <span>Cena DO: </span>
+                    </div>
+                    <div class="col-md-6 input">
+                        <input type="number" [(ngModel)]="price" name="price">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="searchParam row">
+                    <div class="col-md-6 label">
+                        <span>Kvadratura OD: </span>
+                    </div>
+                    <div class="col-md-6 input">
+                        <input type="number" [(ngModel)]="area" name="area">
+                    </div>
+                </div>
+                <div class="searchParam row">
+                    <div class="col-md-6 label">
+                        <span>Minimalan broj soba: </span>
+                    </div>
+                    <div class="col-md-6 input">
+                        <input type="number" step=".5" [(ngModel)]="rooms" name="rooms">
+                    </div>
+                </div>
+                <div class="searchParam row">
+                    <div class="col-md-12">
+                        <div class="button">
+                            <button type="submit" (click)="search()">Pretraga</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offers" style="display: none;">
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-8"><h3>Ponude:</h3></div>
+        </div>
+
+        <table *ngIf="filteredOffers.length > 0">
+            <tr>
+                <th>Naziv</th>
+                <th>Lokacija</th>
+                <th>Kvadratura</th>
+                <th>Broj soba</th>
+                <th>Spratnost</th>
+                <th>Kratak opis</th>
+                <th>Cena</th>
+                <th>Prosecna cena</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let offer of filteredOffers">
+                <td>{{offer.name}}</td>
+                <td>{{offer.city}} - {{offer.city_region}} - {{offer.microlocation}}</td>
+                <td>{{offer.size}}</td>
+                <td>{{offer.rooms}}</td>
+                <td>{{offer.floor}}</td>
+                <td>{{offer.about}}</td>
+                <td>{{offer.price}}</td>
+                <td>{{offer.avg_price?.toFixed(2)}}</td>
+                <td>Detalji</td>
+            </tr>
+        </table>
+        <h4 *ngIf="filteredOffers.length == 0">Nema ponuda</h4>
+    </div>
+</div>
+</div>

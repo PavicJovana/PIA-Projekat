@@ -6,6 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AgentComponent } from './agent/agent.component';
 import { BuyerComponent } from './buyer/buyer.component';
 import { LoginComponent } from './login/login.component';
+import { OfferComponent } from './offer/offer.component';
 import { RegisterComponent } from './register/register.component';
 import { UploadOfferComponent } from './upload-offer/upload-offer.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'agent', component: AgentComponent},
   {path: 'agent/add-offer', component: AddOfferComponent},
   {path: 'agent/upload-offer', component: UploadOfferComponent},
-  {path: 'buyer', component: BuyerComponent}
+  {path: 'buyer', component: BuyerComponent},
+  {path: 'buyer/offer/*', component: OfferComponent}
 ];
 
 @NgModule({

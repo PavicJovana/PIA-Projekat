@@ -14,6 +14,14 @@ export class OfferService {
     return this.http.get(this.uri+"/getAll");
   }
 
+  getAllMicrolocationType(microlocation: string, type: string) {
+    const data = {
+      microlocation: microlocation,
+      type: type
+    };
+
+    return this.http.post(this.uri+"/getAllMicrolocationType", data);
+  }
   
   getAllAgentsOffers(agent: string) {
     const data = {

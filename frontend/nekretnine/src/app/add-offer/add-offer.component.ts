@@ -237,6 +237,11 @@ export class AddOfferComponent implements OnInit {
       this.message.about = this.requiredMessage;
       this.valid = false;
     }
+    let about = this.offer.about.split(' ');
+    if (about.length > 50) {
+      this.message.about = "Opis može da ima maksmalno 50 reči";
+      this.valid = false;
+    }
     this.message.type = "";
     if (this.offer.type == null) {
       this.message.type = this.requiredMessage;

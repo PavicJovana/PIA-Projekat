@@ -74,6 +74,16 @@ class RealestateController {
                 }
             });
         };
+        this.getAllMicrolocationType = (req, res) => {
+            realestate_1.default.find({ type: req.body.type, microlocation: req.body.microlocation, sold: 0 }, (err, realestates) => {
+                if (err) {
+                    console.log("Error getting Realestates in getAllMicrolocationType");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(realestates);
+            });
+        };
     }
 }
 exports.RealestateController = RealestateController;

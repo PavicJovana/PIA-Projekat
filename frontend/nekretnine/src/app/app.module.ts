@@ -14,6 +14,7 @@ import { AgentComponent } from './agent/agent.component';
 import { BuyerComponent } from './buyer/buyer.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { UploadOfferComponent } from './upload-offer/upload-offer.component';
+import { OfferComponent } from './offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UploadOfferComponent } from './upload-offer/upload-offer.component';
     AgentComponent,
     BuyerComponent,
     AddOfferComponent,
-    UploadOfferComponent
+    UploadOfferComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,

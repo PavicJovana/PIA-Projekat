@@ -10,8 +10,8 @@
         <a routerLink="/agent/add-offer">Dodaj oglas</a>
     </div>
     <div *ngIf="url == '/buyer'" class="nav">
-        <a routerLink="/buyer">Sve nekretnine</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a routerLink="/buyer/search">Napredna pretraga</a>
+        <a routerLink="/buyer">Pretraga</a><!-- &nbsp;&nbsp;|&nbsp;&nbsp; -->
+        <!-- <a routerLink="/buyer/search">Napredna pretraga</a> -->
     </div>
     <div *ngIf="userLogged" class="logout" (click)="logout()">Logout</div>
 </header>

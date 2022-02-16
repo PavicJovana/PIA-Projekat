@@ -21,4 +21,5 @@ export class Realestate {
     agent: string;  //username from users
     sold: number;   //0-no 1-yes
     images: string[];
+    avg_price: number;
 };
