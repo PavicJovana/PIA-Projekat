@@ -100,7 +100,7 @@
                 <td>{{offer.about}}</td>
                 <td>{{offer.price}}</td>
                 <td>{{offer.avg_price?.toFixed(2)}}</td>
-                <td>Detalji</td>
+                <td><a [routerLink]="['/buyer/offer', offer.id]">Detalji</a></td>
             </tr>
         </table>
         <h4 *ngIf="filteredOffers.length == 0">Nema ponuda</h4>

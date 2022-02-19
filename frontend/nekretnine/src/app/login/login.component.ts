@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Realestate } from '../models/realestate';
 import { User } from '../models/user';
+import { OfferService } from '../services/offer.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -10,7 +12,11 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private offerService: OfferService
+    ) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem('user')) {
@@ -25,6 +31,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/buyer']);
           break;
       }
+    } else {
+        this.offerService.getLastFive().subscribe((offers: Realestate[]) => {
+        this.offers = offers;
+      });
     }
   }
 
@@ -32,6 +42,8 @@ export class LoginComponent implements OnInit {
   password: string;
 
   message: string;
+
+  offers: Realestate[] = [];
 
   login() {
     this.userService.login(this.username, this.password).subscribe((user: User) => {

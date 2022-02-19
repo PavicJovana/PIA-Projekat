@@ -40,6 +40,16 @@ class AgencyController {
                     res.status(200).json(agencies);
             });
         };
+        this.getAgency = (req, res) => {
+            agency_1.default.findOne({ pib: req.body.pib }, (err, agency) => {
+                if (err) {
+                    console.log("Error getting Agency in getAgency");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(agency);
+            });
+        };
     }
 }
 exports.AgencyController = AgencyController;

@@ -18,5 +18,14 @@ cityRouter.route('/getAllCityRegions').post(
 cityRouter.route('/getAllCityRegionMicroLocations').post(
     (req, res) => new CityController().getAllCityRegionMicroLocations(req, res)
 )
+cityRouter.route('/getCity').post(
+    (req, res) => new CityController().getCity(req, res)
+)
+cityRouter.route('/getCityRegion').post(
+    (req, res) => new CityController().getCityRegion(req, res)
+)
+cityRouter.route('/getMicrolocation').post(
+    (req, res) => new CityController().getMicrolocation(req, res)
+)
 
 export default cityRouter;

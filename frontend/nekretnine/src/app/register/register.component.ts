@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Agency } from '../models/agency';
 import { City } from '../models/city';
+import { Realestate } from '../models/realestate';
 import { User } from '../models/user';
 import { AgencyService } from '../services/agency.service';
 import { CityService } from '../services/city.service';
+import { OfferService } from '../services/offer.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -19,7 +21,8 @@ export class RegisterComponent implements OnInit {
     private router: Router, 
     private userService: UserService, 
     private cityService: CityService,
-    private agencyService: AgencyService
+    private agencyService: AgencyService,
+    private offerService: OfferService
     ) { }
 
   ngOnInit(): void {
@@ -49,6 +52,10 @@ export class RegisterComponent implements OnInit {
         if (agencies) {
           this.allAgencies = agencies;
         }
+      });
+      
+      this.offerService.getLastFive().subscribe((offers: Realestate[]) => {
+        this.offers = offers;
       });
     }
   }
@@ -92,6 +99,8 @@ export class RegisterComponent implements OnInit {
   };
   errorMessage: string;
   successMessage: string;
+  
+  offers: Realestate[] = [];
 
   fileUpload(event){
     if (event.target.files && event.target.files[0]) {

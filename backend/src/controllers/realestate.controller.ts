@@ -12,6 +12,24 @@ export class RealestateController {
         })
     }
 
+    getLastFive = (req: express.Request, res: express.Response) => {
+        Realestate.find({}).sort({id: -1}).limit(5).then((realestates) => {
+            res.status(200).json(realestates);
+        }).catch((err)=>{
+            console.log("Error getting Realestates in getLastFive");
+            res.status(401).json({'message': 'Error!'});
+        });
+    }
+
+    getOffer = (req: express.Request, res: express.Response) => {
+        Realestate.findOne({id: req.body.id}, (err, realestate)=>{
+            if (err) {
+                console.log("Error getting Realestates in getOffer");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(realestate);
+        })
+    }
+
     getAllAgentsOffers = (req: express.Request, res: express.Response) => {
         Realestate.find({agent: req.body.agent}, (err, realestates)=>{
             if (err) {

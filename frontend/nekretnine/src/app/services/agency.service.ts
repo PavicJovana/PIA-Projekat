@@ -31,4 +31,9 @@ export class AgencyService {
     
   }
 
+  getAgency(pib: Object) {
+
+    return this.http.post(this.uri+"/getAgency", {pib: pib});
+
+  }
 }

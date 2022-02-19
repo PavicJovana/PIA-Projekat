@@ -4,14 +4,18 @@ h1 {
     padding-bottom: 2em;
 }
 
-.registerTable {
+.registerTable, .offers {
     border-radius:  27px 27px 27px 27px;
     background-color: #ace6ea;
     padding-top: 75px;
     padding-bottom: 75px;
 }
 
-.registerTable > h3 {
+.offers {
+    margin-top: 20px;
+}
+
+.registerTable > h3, .offers > h3 {
     display: flex;
     justify-content: center;
     
@@ -76,4 +80,28 @@ input[type="date"] {
     border: 1px solid rgb(133, 133, 133);;
     height: 30px;
     padding-left: 10px;
+}
+
+.offer {
+    width: 400px;
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.offer .title {
+    text-align: center;
+}
+
+.offer img {
+    object-fit: contain;
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+}
+
+.offer .info {
+    margin-top: 80px;
+    margin-left: 20px;
 }

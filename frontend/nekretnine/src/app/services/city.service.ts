@@ -38,4 +38,16 @@ export class CityService {
     return this.http.post(this.uri+'/getAllCityRegionMicroLocations', data);
   }
 
+  getCity(code: string) {
+    return this.http.post(this.uri+'/getCity', {code: code});
+  }
+
+  getCityRegion(code: string) {
+    return this.http.post(this.uri+'/getCityRegion', {code: code});
+  }
+
+  getMicrolocation(code: string) {
+    return this.http.post(this.uri+'/getMicrolocation', {code: code});
+  }
+
 }

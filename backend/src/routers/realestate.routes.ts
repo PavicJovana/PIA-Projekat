@@ -6,6 +6,12 @@ const realestateRouter = express.Router();
 realestateRouter.route('/getAll').get(
     (req, res) => new RealestateController().getAll(req, res)
 )
+realestateRouter.route('/getLastFive').get(
+    (req, res) => new RealestateController().getLastFive(req, res)
+)
+realestateRouter.route('/getOffer').post(
+    (req, res) => new RealestateController().getOffer(req, res)
+)
 realestateRouter.route('/getAllAgentsOffers').post(
     (req, res) => new RealestateController().getAllAgentsOffers(req, res)
 )

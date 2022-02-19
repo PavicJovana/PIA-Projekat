@@ -12,5 +12,8 @@ agencyRouter.route('/checkAgencyTaken').post(
 agencyRouter.route('/getAll').get(
     (req, res) => new AgencyController().getAll(req, res)
 )
+agencyRouter.route('/getAgency').post(
+    (req, res) => new AgencyController().getAgency(req, res)
+)
 
 export default agencyRouter; 

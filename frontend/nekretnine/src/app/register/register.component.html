@@ -189,20 +189,24 @@
             </table>
         </form>
     </div>
+
+    <div class="offers" *ngIf="offers">
+        <h3>Najnovije ponude</h3>
+
+        <div class="offer" *ngFor="let offer of offers">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="title">{{offer.name}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img [src]="offer.images[(offer.images.length-1)%2]">
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="info">{{offer.price}} &euro;</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!-- <div class="image-preview" >
-    <img [src]="imagePreview" >
-</div>
-<div class="row">
-
-    <figure class="image" accept=".jpg,.png" *ngIf='file_url'>
-        <img [src]="file_url" width="300px" height="300px" />
-    </figure>
-    <div class="img_div" *ngIf='!file_url'>Slika</div>
-    <label for="file-upload" class="custom-file-upload btn">
-         Dodaj sliku
-    </label>
-    <input #fileValue name="fileValue" id="file-upload" type="file" (change)='fileUpload($event)' />
-
-</div> -->

@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'agent/add-offer', component: AddOfferComponent},
   {path: 'agent/upload-offer', component: UploadOfferComponent},
   {path: 'buyer', component: BuyerComponent},
-  {path: 'buyer/offer/*', component: OfferComponent}
+  {path: 'buyer/offer/:id', component: OfferComponent}
 ];
 
 @NgModule({

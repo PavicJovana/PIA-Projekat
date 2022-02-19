@@ -36,4 +36,13 @@ export class AgencyController {
         })
     }
 
+    getAgency = (req: express.Request, res: express.Response) => {
+        Agency.findOne({pib: req.body.pib}, (err, agency)=>{
+            if (err) {
+                console.log("Error getting Agency in getAgency");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(agency);
+        })
+    }
+
 }

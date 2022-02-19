@@ -14,6 +14,18 @@ export class OfferService {
     return this.http.get(this.uri+"/getAll");
   }
 
+  getOffer(offerId: number) {
+    const data = {
+      id: offerId
+    }
+
+    return this.http.post(this.uri+"/getOffer", data);
+  }
+
+  getLastFive() {
+    return this.http.get(this.uri+"/getLastFive");
+  }
+
   getAllMicrolocationType(microlocation: string, type: string) {
     const data = {
       microlocation: microlocation,

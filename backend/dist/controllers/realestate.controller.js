@@ -17,6 +17,24 @@ class RealestateController {
                     res.status(200).json(realestates);
             });
         };
+        this.getLastFive = (req, res) => {
+            realestate_1.default.find({}).sort({ id: -1 }).limit(5).then((realestates) => {
+                res.status(200).json(realestates);
+            }).catch((err) => {
+                console.log("Error getting Realestates in getLastFive");
+                res.status(401).json({ 'message': 'Error!' });
+            });
+        };
+        this.getOffer = (req, res) => {
+            realestate_1.default.findOne({ id: req.body.id }, (err, realestate) => {
+                if (err) {
+                    console.log("Error getting Realestates in getOffer");
+                    res.status(401).json({ 'message': 'Error!' });
+                }
+                else
+                    res.status(200).json(realestate);
+            });
+        };
         this.getAllAgentsOffers = (req, res) => {
             realestate_1.default.find({ agent: req.body.agent }, (err, realestates) => {
                 if (err) {

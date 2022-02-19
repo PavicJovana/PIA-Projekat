@@ -50,4 +50,31 @@ export class CityController {
         })
     }
 
+    getCity = (req: express.Request, res: express.Response) => {
+        City.findOne({code: req.body.code}, (err, city)=>{
+            if (err) {
+                console.log("Error getting City in getCity");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(city);
+        })
+    }
+
+    getCityRegion = (req: express.Request, res: express.Response) => {
+        city_region.findOne({code: req.body.code}, (err, city_region)=>{
+            if (err) {
+                console.log("Error getting CityRegion in getCityRegion");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(city_region);
+        })
+    }
+
+    getMicrolocation = (req: express.Request, res: express.Response) => {
+        micro_location.findOne({code: req.body.code}, (err, micro)=>{
+            if (err) {
+                console.log("Error getting Microlocatiion in getMicrolocation");
+                res.status(401).json({'message': 'Error!'});
+            } else res.status(200).json(micro);
+        })
+    }
+
 }

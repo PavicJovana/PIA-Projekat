@@ -1,1 +1,127 @@
-<p>offer works!</p>
+<app-header></app-header>
+
+<div class="row offerBody">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12 hading">
+                <span>
+                    <h2 class="title">{{offer?.name}}</h2>
+                    <h5 class="location">{{city?.name}} - {{city_region?.name}} - {{microlocation?.name}}</h5>
+                </span>
+            </div>
+        </div>
+        <div class="body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="gallery" *ngIf="offer?.images.length > 0">
+                        <span class="img" id="imgTab-{{i}}" *ngFor="let img of offer.images; let i=index" class="{{i == 0? 'active' : ''}}" >
+                            <span class="arrow" *ngIf="i>0" (click)="showImage(i-1)"><</span>
+                            <img [src]="img">
+                            <span class="arrow" *ngIf="i>=0 && i<offer.images.length-1" (click)="showImage(i+1)">></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row info">
+                        <div class="col-lg-4 infoTab">
+                            <p><b>Tip:</b></p> 
+                            <p>{{offer?.type | titlecase}}</p>
+                        </div>
+                        <div class="col-lg-4 infoTab">
+                            <p><b>Kvadratura:</b></p> 
+                            <p>{{offer?.size}}m<sup>2</sup></p>
+                        </div>
+                        <div class="col-lg-4 infoTab">
+                            <p><b>Soba:</b></p> 
+                            <p>{{offer?.rooms}}</p>
+                        </div>
+                    </div>
+                    <div class="row details">
+                        <div class="col-lg-7">
+                            <p><b>Oglašivač:</b> {{agent?.agency? 'agencija' : 'vlasnik'}}</p>
+                            <p><b>Godina izgradnje:</b> {{offer?.construction_year}}</p>
+                            <p><b>Stanje nekretnine:</b> {{offer?.state}}</p>
+                            <p><b>Tip grejanja:</b> {{offer?.heating}}</p>
+                        </div>
+                        <div class="col-lg-5">
+                            <p><b>Sprat:</b> {{offer?.floor}}</p>
+                            <p><b>Ukupna spratnost:</b> {{offer?.total_floors}}</p>
+                            <p><b>Parking:</b> {{offer?.parking? 'da' : 'ne'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 price">
+                    <h4 class="{{offer?.price/offer?.size > avgPrice ? 'red' : 'green'}}">{{offer?.price}} &euro;</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 charWrapper" *ngIf="offer">
+                    <div class="char">
+                        <div class="row charTab">
+                            <div class="col-lg-12">
+                                <span><b>Karakteristike</b></span>
+                            </div>
+                        </div>
+                        <div class="row charFull">
+                            <div class="col-lg-4">
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('terasa')" />Terasa<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('lodja')" /> Lođa<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('balkon')" /> Franc. balkon<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('lift')" /> Lift<br/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('podrum')" /> Podrum<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('garaza')" /> Garaža<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('basta')" /> Sa baštom<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('klima')" /> Klima<br/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('internet')" /> Internet<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('interfon')" /> Interfon<br/>
+                                <input type="checkbox" disabled  [checked]="offer.characteristics.includes('telefon')" /> Telefon<br/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 about">
+                    <div class="row charTab">
+                        <div class="col-lg-12">
+                            <span><b>Opis</b></span>
+                        </div>
+                    </div>
+                    <div class="row charFull">
+                        <div class="col-lg-12">
+                            <p>{{offer?.about}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row offerBody agent">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12 hading">
+                <h2>Oglašivač:</h2>
+            </div>
+        </div>
+        <div class="row body agentBody">
+            <div *ngIf="agency" class="col-md-12">
+                <p><b>Agencija:</b> {{agency.name}}</p>
+                <p><b>Adresa:</b> {{agency.address}}, {{agency.city}}</p>
+                <p><b>PIB:</b> {{agency.pib}}</p>
+                <p><b>Agent:</b> {{agent.firstname}} {{agent.lastname}}</p>
+                <p><b>Kontakt: <span id="plus" (click)="showPhone()">+</span><span id="minus" class="hide" (click)="hidePhone()">-</span></b></p>
+            </div>
+            <div *ngIf="agency == null" class="col-md-12">
+                <p><b>Vlasnik:</b> {{agent?.firstname}} {{agent?.lastname}}</p>
+                <p><b>Kontakt: <span id="plus" (click)="showPhone()">+</span><span id="minus" class="hide" (click)="hidePhone()">-</span></b></p>
+            </div>
+            <p id="phone" class="hide">{{agent?.phone}}</p>
+        </div>
+    </div>
+</div>
