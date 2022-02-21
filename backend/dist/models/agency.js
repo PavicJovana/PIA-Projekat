@@ -12,7 +12,7 @@ let Agency = new Schema({
     address: {
         type: String
     },
-    city_code: {
+    city: {
         type: String
     },
     phone: {

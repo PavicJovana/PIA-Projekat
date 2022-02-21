@@ -16,7 +16,7 @@
                     <td>{{offer.name}}</td>
                     <td>{{(offer.price | number).split(',').join(' ')}}</td>
                     <td *ngIf="offer.sold == 0">
-                        <button (click)="editOffer(offer.id)">Izmeni</button> 
+                        <!-- <button (click)="editOffer(offer.id)">Izmeni</button>  -->
                         <button (click)="sellOffer(offer.id)">Prodato</button>
                     </td>
                     <td *ngIf="offer.sold == 1">

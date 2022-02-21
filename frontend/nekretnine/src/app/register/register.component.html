@@ -160,8 +160,11 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><div class="captchaLabel">{{initCaptcha}}</div></td>
-                    <td><input type="text" name="submitCaptcha"  [(ngModel)]="submitCaptcha"  title="Ponovite karaktere ispisane u levom polju" /></td>
+                    <!-- <td><div class="captchaLabel">{{initCaptcha}}</div></td>
+                    <td><input type="text" name="submitCaptcha"  [(ngModel)]="submitCaptcha"  title="Ponovite karaktere ispisane u levom polju" /></td> -->
+                    <td colspan="2">
+                        <re-captcha (resolved)="resolved($event)" siteKey="6LcHA48eAAAAAN-b7IajKtz03CX9VFixdEC5X96g"></re-captcha>
+                    </td>
                 </tr>
                 <tr *ngIf="message.captcha">
                     <td></td>

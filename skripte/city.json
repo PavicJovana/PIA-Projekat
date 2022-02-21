@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "61eda5c3fa6cae8830aee1ae"
+  },
+  "name": "Beograd",
+  "code": "beograd"
+},{
+  "_id": {
+    "$oid": "61eda5c3fa6cae8830aee1b1"
+  },
+  "name": "Novi Sad",
+  "code": "novi_sad"
+},{
+  "_id": {
+    "$oid": "61eda5c3fa6cae8830aee1b4"
+  },
+  "name": "Sabac",
+  "code": "sabac"
+}]

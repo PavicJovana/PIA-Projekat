@@ -105,6 +105,7 @@ export class AddOfferComponent implements OnInit {
         }
       })
     }
+    this.offer.microlocation = null;
   }
 
   refreshMicroLocations() {

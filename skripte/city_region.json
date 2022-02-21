@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "61fef9818ee179cabf780d43"
+  },
+  "name": "Cukarica",
+  "code": "cukarica",
+  "city": "beograd"
+},{
+  "_id": {
+    "$oid": "61fef9818ee179cabf780d49"
+  },
+  "name": "Vracar",
+  "code": "vracar",
+  "city": "beograd"
+},{
+  "_id": {
+    "$oid": "6214062af20ab14b72dfb8d1"
+  },
+  "name": "Novi Sad",
+  "code": "novi_sad",
+  "city": "novi_sad"
+},{
+  "_id": {
+    "$oid": "6214068df20ab14b72dfb8d8"
+  },
+  "name": "Bogatic",
+  "code": "bogatic",
+  "city": "sabac"
+}]

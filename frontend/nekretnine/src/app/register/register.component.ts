@@ -75,6 +75,9 @@ export class RegisterComponent implements OnInit {
   initCaptcha: string;
   submitCaptcha: string;
 
+  captcha: string = '';
+  captchaValid: boolean = false;
+
   imagePreview: string;
   cardImageBase64: string;
 
@@ -135,23 +138,7 @@ export class RegisterComponent implements OnInit {
       }
       reader.readAsDataURL(event.target.files[0]);
     }
-
-    // //prikaz slke
-    // const reader = new FileReader();
-    // reader.onload = () => {
-    //   this.imagePreview = <string> reader.result;
-    // };
-    // reader.readAsDataURL(this.file);    
   }
-
-
-  // uploadImage() {
-  //   //Upload file here send a binary data
-  //   this.http.post('./assets/img.png', this.file)
-  //   .subscribe((resp)=>{
-  //     alert(resp);  
-  //   });
-  // }
 
   register() {
 
@@ -161,8 +148,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.checkValidation();
+    console.log(this.valid);
+    console.log(this.captcha);
 
-    if(this.valid && this.fileValid) {
+    if(this.valid && this.fileValid && this.captcha) {
       this.userService.checkUserDataTaken(this.user.username, this.user.email, this.user.licence_number).subscribe((resp)=>{
         if (resp['usernameTaken']) {
           this.valid = false;
@@ -286,16 +275,20 @@ export class RegisterComponent implements OnInit {
       this.valid = false;
     }
     this.message.captcha = "";
-    if (this.submitCaptcha == null) {
+    if (!this.captcha) {
       this.message.captcha = this.requiredMessage;
       this.valid = false;
-      this.generateCaptchaValue();
     }
-    if (this.submitCaptcha.trim() != this.initCaptcha) {
-      this.message.captcha = "CAPTCHA nije ispravno popunjena";
-      this.valid = false;
-      this.generateCaptchaValue();
-    }
+    // if (this.submitCaptcha == null) {
+    //   this.message.captcha = this.requiredMessage;
+    //   this.valid = false;
+    //   this.generateCaptchaValue();
+    // }
+    // if (this.submitCaptcha.trim() != this.initCaptcha) {
+    //   this.message.captcha = "CAPTCHA nije ispravno popunjena";
+    //   this.valid = false;
+    //   this.generateCaptchaValue();
+    // }
   }
 
   generateCaptchaValue() {
@@ -309,6 +302,10 @@ export class RegisterComponent implements OnInit {
 
     this.initCaptcha = code;
     this.submitCaptcha = "";
+  }
+
+  resolved(captchaRespones: string) {
+    this.captcha = captchaRespones;
   }
 
 }

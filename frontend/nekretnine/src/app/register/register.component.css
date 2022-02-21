@@ -29,8 +29,12 @@ table {
     padding-right: 10px;
 }
 
-input {
+input, select {
     opacity: 0.8;
+}
+
+select {
+    height: 28px;
 }
 
 input[type="text"], input[type="password"], input[type="date"], select {

@@ -50,12 +50,49 @@ export class BuyerComponent implements OnInit {
       }
       this.allOffers = offers;
 
+      this.cityService.getAll().subscribe((cities: City[])=>{
+        this.cities = cities;
+        for (let offer of this.allOffers) {
+          for(let city of this.cities) {
+            if (offer.city == city.code) {
+              offer.city = city.name;
+              break;
+            }
+          }
+        }
+      })
+      this.cityService.getAllRegions().subscribe((regions: CityRegion[])=>{
+        this.cityRegions = regions;
+        for (let offer of this.allOffers) {
+          for(let region of this.cityRegions) {
+            if (offer.city_region == region.code) {
+              offer.city_region = region.name;
+              break;
+            }
+          }
+        }
+      })
+      this.cityService.getAllMicrolocations().subscribe((miros: MicroLocation[])=>{
+        this.micros = miros;
+        for (let offer of this.allOffers) {
+          for(let micro of this.micros) {
+            if (offer.microlocation == micro.code) {
+              offer.microlocation = micro.name;
+              break;
+            }
+          }
+        }
+      })
     });
   }
 
   userLogged: boolean;
   allOffers: Realestate[] = [];
   filteredOffers: Realestate[] = [];
+
+  cities: City[] = [];
+  cityRegions: CityRegion[] = [];
+  micros: MicroLocation[] = [];
 
   type: string;
   location: string;

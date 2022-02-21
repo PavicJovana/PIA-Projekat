@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "61dca1fbb3250ab3f3175fca"
+  },
+  "name": "City nekretnine",
+  "address": "Beogradska 3",
+  "city": "beograd",
+  "phone": "06123456",
+  "pib": "123456"
+},{
+  "_id": {
+    "$oid": "621401d9d55f2a30ac2908d2"
+  },
+  "name": "Najbolje nekretnine",
+  "address": "Beogradska 1",
+  "phone": "0615687951",
+  "pib": "01859647",
+  "__v": 0,
+  "city": "beograd"
+},{
+  "_id": {
+    "$oid": "6214028123a32c32c4ad7442"
+  },
+  "name": "Agencija Vidik",
+  "address": "Kneza Milosa 12",
+  "city": "beograd",
+  "phone": "0649785336",
+  "pib": "98567423",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6214031023a32c32c4ad7443"
+  },
+  "city": "sabac",
+  "address": "Podrinjska 4",
+  "phone": "0658597866",
+  "pib": "96583475",
+  "name": "Nekretnine Sabac",
+  "__v": 0
+}]

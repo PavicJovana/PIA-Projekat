@@ -23,15 +23,15 @@
    { 
      "Type":"Agencija", 
      "Name":"Agencija Beogradski vrabac", 
-     "PIB":"100200333", 
+     "PIB":"123456", 
      "City":"Beograd", 
      "Address":"Krunska 22", 
      "Phone":"0112345123" 
    }, 
    { 
-     "FirstName":"Jovana", 
-     "LastName":"Pavic", 
-     "Phone":"0612765998" 
+     "FirstName":"Oglasivac", 
+     "LastName":"Agent", 
+     "Phone":"0611111333" 
    } 
  ] 
 } 

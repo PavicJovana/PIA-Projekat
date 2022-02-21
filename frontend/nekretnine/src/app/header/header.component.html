@@ -2,14 +2,14 @@
     <div class="logo">TvojaNekretnina.rs</div>
     <div *ngIf="url == '/admin' || url == '/admin/add-agency' || url == '/add-location'" class="nav">
         <a routerLink="/admin">Upravljanje korisnicima</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-        <a routerLink="/admin/add-agency">Dodavanje agencija</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-        <a routerLink="/add-location">Upravljanje mikrolokacijama</a>
+        <a routerLink="/admin/add-agency">Dodavanje agencija</a><!--  &nbsp;&nbsp;|&nbsp;&nbsp;  -->
+        <!-- <a routerLink="/add-location">Upravljanje mikrolokacijama</a> -->
     </div>
     <div *ngIf="url == '/agent' || url == '/agent/add-offer' || url == '/agent/upload-offer'" class="nav">
         <a routerLink="/agent">Moji oglasi</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
         <a routerLink="/agent/add-offer">Dodaj oglas</a>
     </div>
-    <div *ngIf="url == '/buyer'" class="nav">
+    <div *ngIf="url == '/buyer' || url.includes('/buyer/offer')" class="nav">
         <a routerLink="/buyer">Pretraga</a><!-- &nbsp;&nbsp;|&nbsp;&nbsp; -->
         <!-- <a routerLink="/buyer/search">Napredna pretraga</a> -->
     </div>

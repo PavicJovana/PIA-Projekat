@@ -16,6 +16,8 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
 import { UploadOfferComponent } from './upload-offer/upload-offer.component';
 import { OfferComponent } from './offer/offer.component';
 
+import { RecaptchaModule } from 'ng-recaptcha';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { OfferComponent } from './offer/offer.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

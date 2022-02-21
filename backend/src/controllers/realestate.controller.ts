@@ -13,7 +13,7 @@ export class RealestateController {
     }
 
     getLastFive = (req: express.Request, res: express.Response) => {
-        Realestate.find({}).sort({id: -1}).limit(5).then((realestates) => {
+        Realestate.find({sold: 0}).sort({id: -1}).limit(5).then((realestates) => {
             res.status(200).json(realestates);
         }).catch((err)=>{
             console.log("Error getting Realestates in getLastFive");
@@ -77,7 +77,7 @@ export class RealestateController {
             } else {
                 if (realestate) {
                     Realestate.collection.updateOne({'id': parseInt(id)}, {$push: {'images': image}}).then(realestate => {
-                        res.status(200).json({'message': 'Realestate image added', 'success': true, 'realestate': realestate})
+                        res.status(200).json({'message': 'Slika nekretnine je sacuvana', 'success': true, 'realestate': realestate})
                     }).catch(err=>{
                         res.status(401).json({'message': 'Error!', 'success': false})
                     });

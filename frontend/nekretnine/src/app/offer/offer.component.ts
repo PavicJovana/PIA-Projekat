@@ -24,6 +24,7 @@ export class OfferComponent implements OnInit {
   offer: Realestate;
   agent: User;
   agency: Agency = null;
+  agencyCity: City;
 
   city: City;
   city_region: CityRegion;
@@ -67,6 +68,10 @@ export class OfferComponent implements OnInit {
           if (agent?.agency) {
             this.agencyService.getAgency(agent.agency).subscribe((agency: Agency) => {
               this.agency = agency;
+              
+              this.cityService.getCity(agency.city).subscribe((city: City) => {
+                this.agencyCity = city;
+              });
             });
           }
         });

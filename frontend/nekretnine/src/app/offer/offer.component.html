@@ -6,7 +6,7 @@
             <div class="col-lg-12 hading">
                 <span>
                     <h2 class="title">{{offer?.name}}</h2>
-                    <h5 class="location">{{city?.name}} - {{city_region?.name}} - {{microlocation?.name}}</h5>
+                    <h5 class="location">{{city?.name}} - {{city_region?.name}} - {{microlocation?.name}} - {{offer?.street}}</h5>
                 </span>
             </div>
         </div>
@@ -112,7 +112,7 @@
         <div class="row body agentBody">
             <div *ngIf="agency" class="col-md-12">
                 <p><b>Agencija:</b> {{agency.name}}</p>
-                <p><b>Adresa:</b> {{agency.address}}, {{agency.city}}</p>
+                <p><b>Adresa:</b> {{agency.address}}, {{agencyCity.name}}</p>
                 <p><b>PIB:</b> {{agency.pib}}</p>
                 <p><b>Agent:</b> {{agent.firstname}} {{agent.lastname}}</p>
                 <p><b>Kontakt: <span id="plus" (click)="showPhone()">+</span><span id="minus" class="hide" (click)="hidePhone()">-</span></b></p>

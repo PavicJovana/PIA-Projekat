@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "61fefc758ee179cabf780eec"
+  },
+  "name": "Sremcica",
+  "code": "sremcica",
+  "city_region": "cukarica"
+},{
+  "_id": {
+    "$oid": "61fefc758ee179cabf780eef"
+  },
+  "name": "Banovo brdo",
+  "code": "banovo_brdo",
+  "city_region": "cukarica"
+},{
+  "_id": {
+    "$oid": "620921ef8ee179cabf787fba"
+  },
+  "name": "Crveni krst",
+  "code": "crveni_krst",
+  "city_region": "vracar"
+},{
+  "_id": {
+    "$oid": "62140669f20ab14b72dfb8d5"
+  },
+  "name": "Centar",
+  "code": "centar",
+  "city_region": "novi_sad"
+},{
+  "_id": {
+    "$oid": "621406a2f20ab14b72dfb8db"
+  },
+  "name": "Metkovic",
+  "code": "metkovic",
+  "city_region": "bogatic"
+}]
